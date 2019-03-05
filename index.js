@@ -131,7 +131,7 @@ FocusGroup.prototype._handleUnboundKey = function(event) {
   }
 
   // Only respond to letter keys
-  if (!isLetterKeyCode(event.keyCode)) return -1;
+  if (!isLetterOrNumberKeyCode(event.keyCode)) return -1;
 
   // If the letter key is part of a key combo,
   // let it do whatever it was going to do
@@ -260,8 +260,8 @@ function matchesEvent(matcher, event) {
   return true;
 }
 
-function isLetterKeyCode(keyCode) {
-  return keyCode >= 65 && keyCode <= 90;
+function isLetterOrNumberKeyCode(keyCode) {
+  return keyCode >= 48 && keyCode <= 57 || keyCode >= 65 && keyCode <= 90;
 }
 
 function focusNode(node) {
